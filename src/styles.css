@@ -164,6 +164,8 @@ kbd { margin-left: auto; padding: 2px 5px; border: 1px solid var(--line); border
 .translation-meta { gap: 7px; margin-bottom: 10px; color: var(--ink-faint); font-size: 10px; }
 .translation-badge { padding: 3px 5px; border-radius: 4px; background: color-mix(in srgb, var(--badge-accent) 15%, transparent); color: var(--badge-accent); font-size: 9px; font-weight: 800; letter-spacing: .08em; }
 .translation-text { display: block; font-family: Georgia, "Times New Roman", serif; font-size: calc(20px * var(--reader-scale)); line-height: 1.72; letter-spacing: .01em; }
+.translation-heading { display: block; margin-bottom: .3em; font-weight: 700; letter-spacing: normal; }
+.translation-body { display: block; }
 .single-mode .translation-cell { padding-right: 90px; }
 .first-verse .translation-text { font-size: calc(22px * var(--reader-scale)); }
 .chapter-endnote { display: flex; align-items: center; justify-content: center; gap: 13px; padding: 26px; color: var(--ink-faint); font-size: 10px; letter-spacing: .08em; }
@@ -259,8 +261,8 @@ kbd { margin-left: auto; padding: 2px 5px; border: 1px solid var(--line); border
   .search-trigger { min-width: 0; padding: 8px 10px; }
   .search-trigger span:nth-child(2), .search-trigger kbd { display: none; }
   .chapter-strip { flex-basis: 100%; margin: 10px 0 0; padding: 9px; }
-  .chapter-strip-scroll { grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 4px; }
-  .chapter-strip-chip { height: 31px; font-size: 17px; }
+  .chapter-strip-scroll { grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 5px; }
+  .chapter-strip-chip { height: 36px; font-size: 16px; }
   .reader-heading { align-items: start; flex-direction: column; padding: 34px 4px 20px; }
   .heading-actions { width: 100%; justify-content: flex-end; }
   .chapter-title-row h1 { font-size: 45px; }

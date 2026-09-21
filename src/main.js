@@ -366,6 +366,25 @@ function cleanVerseText(text) {
   return String(text || '').replace(/\s+/g, ' ').trim();
 }
 
+function splitVerseHeading(text) {
+  const source = String(text || '').trim();
+  const match = source.match(/^[＜〈<]\s*([^＞〉>]+?)\s*[＞〉>]\s*/);
+  if (!match) return { heading: '', body: source };
+
+  return {
+    heading: match[1].trim(),
+    body: source.slice(match[0].length).trim(),
+  };
+}
+
+function renderVerseText(text) {
+  const { heading, body } = splitVerseHeading(text);
+  return `
+    ${heading ? `<span class="translation-heading">${escapeHtml(heading)}</span>` : ''}
+    <span class="translation-body">${escapeHtml(body)}</span>
+  `;
+}
+
 function resolveBookId(raw) {
   const normalized = String(raw || '').trim().toLowerCase();
   return BOOK_ALIASES.get(normalized) || BOOK_ALIASES.get(normalized.replace(/[._-]/g, '')) || raw;
@@ -720,7 +739,7 @@ function renderVerseRow(verseNumber, selectedVersions, index) {
         ${selectedVersions.map((version) => `
           <div class="translation-cell" data-verse-cell="true" data-version="${version.definition.id}" data-verse="${verseNumber}">
             <span class="translation-meta"><span class="translation-badge" style="--badge-accent:${version.definition.accent}">${escapeHtml(version.definition.short)}</span><span>${escapeHtml(version.definition.language)}</span></span>
-            <span class="translation-text" lang="${version.definition.languageCode}">${escapeHtml(getVerseText(version.definition.id, book.id, state.selectedChapter, verseNumber))}</span>
+            <span class="translation-text" lang="${version.definition.languageCode}">${renderVerseText(getVerseText(version.definition.id, book.id, state.selectedChapter, verseNumber))}</span>
           </div>
         `).join('')}
       </div>
