@@ -168,7 +168,13 @@ kbd { margin-left: auto; padding: 2px 5px; border: 1px solid var(--line); border
 .first-verse .translation-text { font-size: calc(22px * var(--reader-scale)); }
 .chapter-endnote { display: flex; align-items: center; justify-content: center; gap: 13px; padding: 26px; color: var(--ink-faint); font-size: 10px; letter-spacing: .08em; }
 .endnote-line { width: 48px; height: 1px; background: var(--line); }
-.reader-footer { display: flex; justify-content: space-between; padding: 19px 8px 0; color: var(--ink-faint); font-size: 10px; }
+.reader-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 19px 8px 0; color: var(--ink-faint); font-size: 10px; }
+.reader-footer-meta, .chapter-navigation { display: flex; align-items: center; }
+.reader-footer-meta { gap: 20px; flex-wrap: wrap; }
+.chapter-navigation { gap: 10px; margin-left: auto; }
+.chapter-navigation .chapter-stepper { flex: 0 0 auto; }
+.chapter-navigation-title { color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 15px; font-weight: 500; line-height: 1; white-space: nowrap; }
+.chapter-navigation-title span { color: var(--warm); }
 .empty-state { padding: 90px 20px; text-align: center; }
 .empty-icon { color: var(--accent); font-size: 34px; }
 .empty-state h3 { margin: 12px 0 4px; font-family: Georgia, serif; font-weight: 500; }
@@ -267,7 +273,8 @@ kbd { margin-left: auto; padding: 2px 5px; border: 1px solid var(--line); border
   .translation-cell, .single-mode .translation-cell { padding: 20px 16px 22px; border-left: 0; }
   .translation-cell + .translation-cell { border-top: 1px dashed var(--line); }
   .translation-text, .first-verse .translation-text { font-size: calc(18px * var(--reader-scale)); line-height: 1.68; }
-  .reader-footer { gap: 10px; flex-direction: column; }
+  .reader-footer { align-items: stretch; gap: 10px; flex-direction: column; }
+  .chapter-navigation { align-self: flex-end; }
   .version-panel { top: 72px; right: 16px; }
   .search-panel { top: 72px; }
   .search-result { grid-template-columns: 1fr 45px; }

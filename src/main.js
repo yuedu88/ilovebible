@@ -611,8 +611,15 @@ function render() {
           </section>
 
           <footer class="reader-footer">
-            <span>${t('scriptureSource')}</span>
-            <span>${t('positionSaved')}</span>
+            <div class="reader-footer-meta">
+              <span>${t('scriptureSource')}</span>
+              <span>${t('positionSaved')}</span>
+            </div>
+            <div class="chapter-navigation" aria-label="${t('chapterLabel')}">
+              <button class="chapter-stepper" data-action="previous-chapter" aria-label="${t('previousChapter')}" title="${t('previousChapter')}" ${canGoPrevious ? '' : 'disabled'}>←</button>
+              <span class="chapter-navigation-title">${escapeHtml(book.zh)} <span>${state.selectedChapter}</span></span>
+              <button class="chapter-stepper" data-action="next-chapter" aria-label="${t('nextChapter')}" title="${t('nextChapter')}" ${canGoNext ? '' : 'disabled'}>→</button>
+            </div>
           </footer>
         </div>
       </main>
@@ -1087,7 +1094,11 @@ function persistPosition() {
 }
 
 function scrollToTop() {
-  document.querySelector('.main-scroll')?.scrollTo({ top: 0, behavior: 'smooth' });
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  });
 }
 
 function runSearch(query) {
