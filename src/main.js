@@ -604,16 +604,18 @@ function measureTextWidth(text, font) {
 
 function sidebarWidthForLanguage(language) {
   const interfaceFont = getComputedStyle(document.documentElement).fontFamily;
-  const widestCellContent = Math.max(...BOOKS.map((book) => {
+  const columns = 4;
+  const columnWidths = Array.from({ length: columns }, () => 0);
+  BOOKS.forEach((book, index) => {
     const nameWidth = measureTextWidth(bookNameForLanguage(book, language), `400 11px ${interfaceFont}`);
     const abbreviationWidth = measureTextWidth(bookAbbreviationForLanguage(book, language), '700 19px Georgia');
-    return Math.max(nameWidth, abbreviationWidth);
-  }));
-  const columns = 4;
-  const cellHorizontalSpace = 24;
-  const gridGaps = 6 * (columns - 1);
+    columnWidths[index % columns] = Math.max(columnWidths[index % columns], nameWidth, abbreviationWidth);
+  });
+  const cellHorizontalSpace = 14;
+  const gridGaps = 3 * (columns - 1);
   const sidebarPadding = 36;
-  return Math.max(380, Math.ceil((widestCellContent + cellHorizontalSpace) * columns + gridGaps + sidebarPadding));
+  const gridWidth = columnWidths.reduce((total, width) => total + width + cellHorizontalSpace, 0) + gridGaps;
+  return Math.max(380, Math.ceil(gridWidth + sidebarPadding));
 }
 
 function getVerseText(versionId, bookId, chapter, verse) {
