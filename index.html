@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="description" content="一个支持多语言对照阅读的网页版圣经。" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <title>7bible Web Reader</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <noscript>请启用 JavaScript 后再打开网页版圣经。</noscript>
+    <script>
+      if (window.location.protocol === 'file:') {
+        document.querySelector('#app').innerHTML = `
+          <div style="min-height:100vh;display:grid;place-items:center;padding:32px;background:#f5f4ef;color:#263335;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-align:center">
+            <div style="max-width:460px">
+              <div style="display:grid;place-items:center;width:58px;height:58px;margin:0 auto 22px;border-radius:19px 19px 19px 6px;background:#2e716d;color:#fff;font:800 31px Georgia,serif;transform:rotate(-4deg)">7</div>
+              <h1 style="margin:0 0 10px;font:500 30px Georgia,serif">请通过本地服务器打开</h1>
+              <p style="margin:0 0 20px;color:#5f6a6b;font-size:14px;line-height:1.7">浏览器会拦截 file:// 页面读取同目录 XML。请双击项目里的 start.command，或在项目目录执行下面的命令：</p>
+              <code style="display:block;padding:13px;border-radius:8px;background:#eeece5;color:#1e5b58;font-size:13px">python3 -m http.server 4173</code>
+              <p style="margin:14px 0 0;color:#929b99;font-size:12px">然后访问 http://localhost:4173/</p>
+            </div>
+          </div>
+        `;
+      }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
