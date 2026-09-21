@@ -910,6 +910,9 @@ function handleVerseContextMenu(event) {
   const text = selectionInsideCell && selectedText ? selectedText : cell.querySelector('.translation-text')?.textContent?.trim() || '';
   if (!text) return;
 
+  const selectionSnapshot = selectionInsideCell && selectedText
+    ? captureContextSelection(cell, selection)
+    : null;
   const menuWidth = 218;
   const menuHeight = 96;
   state.contextMenu = {
@@ -917,8 +920,77 @@ function handleVerseContextMenu(event) {
     y: Math.max(8, Math.min(event.clientY, window.innerHeight - menuHeight - 8)),
     text,
     isChinese: isChineseText(text),
+    selection: selectionSnapshot,
   };
   render();
+  restoreContextSelection(selectionSnapshot);
+}
+
+function captureContextSelection(cell, selection) {
+  if (!selection?.rangeCount) return null;
+  const root = cell.querySelector('.translation-text');
+  const range = selection.getRangeAt(0);
+  if (!root || !root.contains(range.startContainer) || !root.contains(range.endContainer)) return null;
+
+  return {
+    versionId: cell.dataset.version,
+    verse: cell.dataset.verse,
+    anchorOffset: textOffsetAt(root, selection.anchorNode, selection.anchorOffset),
+    focusOffset: textOffsetAt(root, selection.focusNode, selection.focusOffset),
+  };
+}
+
+function textOffsetAt(root, node, offset) {
+  const range = document.createRange();
+  range.selectNodeContents(root);
+  range.setEnd(node, offset);
+  return range.toString().length;
+}
+
+function textPositionAt(root, offset) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let remaining = Math.max(0, offset);
+  let lastTextNode = null;
+  let textNode = walker.nextNode();
+
+  while (textNode) {
+    lastTextNode = textNode;
+    if (remaining <= textNode.nodeValue.length) {
+      return { node: textNode, offset: remaining };
+    }
+    remaining -= textNode.nodeValue.length;
+    textNode = walker.nextNode();
+  }
+
+  return lastTextNode
+    ? { node: lastTextNode, offset: lastTextNode.nodeValue.length }
+    : { node: root, offset: root.childNodes.length };
+}
+
+function restoreContextSelection(snapshot) {
+  if (!snapshot) return;
+  const cell = [...document.querySelectorAll('[data-verse-cell]')].find((candidate) => {
+    return candidate.dataset.version === snapshot.versionId && candidate.dataset.verse === snapshot.verse;
+  });
+  const root = cell?.querySelector('.translation-text');
+  const selection = window.getSelection();
+  if (!root || !selection) return;
+
+  const anchor = textPositionAt(root, snapshot.anchorOffset);
+  const focus = textPositionAt(root, snapshot.focusOffset);
+  selection.removeAllRanges();
+
+  if (typeof selection.setBaseAndExtent === 'function') {
+    selection.setBaseAndExtent(anchor.node, anchor.offset, focus.node, focus.offset);
+    return;
+  }
+
+  const range = document.createRange();
+  const start = snapshot.anchorOffset <= snapshot.focusOffset ? anchor : focus;
+  const end = snapshot.anchorOffset <= snapshot.focusOffset ? focus : anchor;
+  range.setStart(start.node, start.offset);
+  range.setEnd(end.node, end.offset);
+  selection.addRange(range);
 }
 
 function isChineseText(text) {
@@ -1217,7 +1289,7 @@ window.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('click', (event) => {
-  if (!state.contextMenu || event.target.closest('.context-menu') || event.target.closest('[data-verse-cell]')) return;
+  if (!state.contextMenu || event.target.closest('.context-menu')) return;
   state.contextMenu = null;
   render();
 });
