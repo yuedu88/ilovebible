@@ -387,7 +387,7 @@ BOOKS.forEach((book) => {
 const state = {
   versions: new Map(),
   selectedVersionIds: loadStoredArray('7bible.selectedVersions', ['chius', 'english-esv']),
-  uiLanguage: localStorage.getItem('7bible.uiLanguage') || 'zh',
+  uiLanguage: localStorage.getItem('7bible.uiLanguage') || 'en',
   selectedBookId: localStorage.getItem('7bible.book') || 'Gen',
   selectedChapter: Number(localStorage.getItem('7bible.chapter') || 1),
   testament: localStorage.getItem('7bible.testament') || 'old',
