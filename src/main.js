@@ -92,9 +92,11 @@ const UI_LANGUAGES = [
   { id: 'de', label: 'Deutsch' },
 ];
 
+const APP_STORE_URL = 'https://apps.apple.com/cn/app/%E5%9C%A3%E7%BB%8F365/id6758766690';
+
 const UI_COPY = {
   zh: {
-    language: '网页语言', close: '关闭', emptyChapter: '这一章还没有可显示的经文', emptyChapterHint: '请切换书卷或版本后再试。',
+    language: '网页语言', close: '关闭', downloadApp: '下载 App', emptyChapter: '这一章还没有可显示的经文', emptyChapterHint: '请切换书卷或版本后再试。',
     reader: '阅读器', annotations: '我的标注', plans: '阅读计划', index: '圣经目录', books: '{count} 卷',
     oldTestament: '旧约', newTestament: '新约', chapterLabel: '章节', testamentSelection: '约的选择',
     localReady: '本地版本已就绪', search: '查找经文', scriptureReader: '经文阅读', versionsUnit: '个版本',
@@ -105,13 +107,13 @@ const UI_COPY = {
     versionPanelDescription: '勾选多个版本，在同一节中并排阅读。', selectedVersions: '{count} 个版本已选',
     done: '完成', searchPlaceholder: '输入关键词，例如：光、love、amor', searchHint: '在所有已载入版本中查找关键词',
     searchEnter: '按 Enter 开始搜索', found: '找到 {count} 条结果', noResults: '没有找到“{query}”相关经文。',
-    copySuccess: '经文已复制', fontAdjusted: '字号已调整为 {value}%', annotationsSoon: '标注功能即将开放',
+    copySuccess: '经文已复制', fontAdjusted: '字号已调整为 {value}%', decreaseFont: '减小字号', increaseFont: '增大字号', annotationsSoon: '标注功能即将开放',
     contextCopy: '复制', contextSearch: '搜索', contextSearchGoogle: '使用 Google 搜索', contextSearchBaidu: '使用百度搜索',
     plansSoon: '阅读计划即将开放', welcome: '欢迎回来，继续你的阅读', loading: '正在载入经文版本…',
     loadFailed: '经文载入失败', reload: '重新载入', serverHint: '请通过本地服务器打开。浏览器会拦截 file:// 页面读取 XML。',
   },
   en: {
-    language: 'Language', close: 'Close', emptyChapter: 'No scripture is available for this chapter', emptyChapterHint: 'Try another book or version.',
+    language: 'Language', close: 'Close', downloadApp: 'Get the app', emptyChapter: 'No scripture is available for this chapter', emptyChapterHint: 'Try another book or version.',
     reader: 'Reader', annotations: 'My highlights', plans: 'Reading plan', index: 'Bible index', books: '{count} books',
     oldTestament: 'Old Testament', newTestament: 'New Testament', chapterLabel: 'Chapters', testamentSelection: 'Testament selection',
     localReady: 'Local versions ready', search: 'Search scripture', scriptureReader: 'Scripture reader', versionsUnit: 'versions',
@@ -122,13 +124,13 @@ const UI_COPY = {
     versionPanelDescription: 'Select multiple versions to read the same verse side by side.', selectedVersions: '{count} selected',
     done: 'Done', searchPlaceholder: 'Search a word, for example: light, love, amor', searchHint: 'Search across all loaded versions',
     searchEnter: 'Press Enter to search', found: '{count} results found', noResults: 'No verses found for “{query}”.',
-    copySuccess: 'Verse copied', fontAdjusted: 'Font size set to {value}%', annotationsSoon: 'Highlights are coming soon',
+    copySuccess: 'Verse copied', fontAdjusted: 'Font size set to {value}%', decreaseFont: 'Decrease font size', increaseFont: 'Increase font size', annotationsSoon: 'Highlights are coming soon',
     contextCopy: 'Copy', contextSearch: 'Search', contextSearchGoogle: 'Search with Google', contextSearchBaidu: 'Search with Baidu',
     plansSoon: 'Reading plans are coming soon', welcome: 'Welcome back. Keep reading.', loading: 'Loading scripture versions…',
     loadFailed: 'Unable to load scripture', reload: 'Reload', serverHint: 'Open this site through a local server. Browsers block XML reads from file:// pages.',
   },
   ja: {
-    language: '表示言語', close: '閉じる', emptyChapter: 'この章の聖句はありません', emptyChapterHint: '別の書巻またはバージョンを選んでください。',
+    language: '表示言語', close: '閉じる', downloadApp: 'アプリをダウンロード', emptyChapter: 'この章の聖句はありません', emptyChapterHint: '別の書巻またはバージョンを選んでください。',
     reader: 'リーダー', annotations: 'ハイライト', plans: '読書プラン', index: '聖書目次', books: '{count} 巻',
     oldTestament: '旧約', newTestament: '新約', chapterLabel: '章', testamentSelection: '約の選択',
     localReady: 'ローカル版を準備しました', search: '聖句を検索', scriptureReader: '聖書リーダー', versionsUnit: 'バージョン',
@@ -139,13 +141,13 @@ const UI_COPY = {
     versionPanelDescription: '複数のバージョンを選び、同じ節を並べて読みます。', selectedVersions: '{count} 件選択',
     done: '完了', searchPlaceholder: 'キーワードを入力（光、love、amor など）', searchHint: '読み込み済みの全バージョンから検索',
     searchEnter: 'Enter で検索', found: '{count} 件の結果', noResults: '「{query}」に一致する聖句はありません。',
-    copySuccess: '聖句をコピーしました', fontAdjusted: '文字サイズ {value}%', annotationsSoon: 'ハイライト機能は近日公開',
+    copySuccess: '聖句をコピーしました', fontAdjusted: '文字サイズ {value}%', decreaseFont: '文字サイズを小さくする', increaseFont: '文字サイズを大きくする', annotationsSoon: 'ハイライト機能は近日公開',
     contextCopy: 'コピー', contextSearch: '検索', contextSearchGoogle: 'Google で検索', contextSearchBaidu: '百度で検索',
     plansSoon: '読書プランは近日公開', welcome: 'おかえりなさい。読書を続けましょう。', loading: '聖書のバージョンを読み込み中…',
     loadFailed: '聖書を読み込めません', reload: '再読み込み', serverHint: 'ローカルサーバー経由で開いてください。file:// ページでは XML が読み込めません。',
   },
   ko: {
-    language: '웹 언어', close: '닫기', emptyChapter: '이 장에 표시할 성경 구절이 없습니다', emptyChapterHint: '다른 책이나 버전을 선택해 보세요.',
+    language: '웹 언어', close: '닫기', downloadApp: '앱 다운로드', emptyChapter: '이 장에 표시할 성경 구절이 없습니다', emptyChapterHint: '다른 책이나 버전을 선택해 보세요.',
     reader: '읽기', annotations: '내 하이라이트', plans: '읽기 계획', index: '성경 목차', books: '{count}권',
     oldTestament: '구약', newTestament: '신약', chapterLabel: '장', testamentSelection: '성경 구분 선택',
     localReady: '로컬 버전 준비됨', search: '성경 검색', scriptureReader: '성경 읽기', versionsUnit: '개 버전',
@@ -156,13 +158,13 @@ const UI_COPY = {
     versionPanelDescription: '여러 버전을 선택해 같은 절을 나란히 읽어 보세요.', selectedVersions: '{count}개 선택',
     done: '완료', searchPlaceholder: '검색어 입력 (빛, love, amor 등)', searchHint: '불러온 모든 버전에서 검색',
     searchEnter: 'Enter를 눌러 검색', found: '{count}개 결과', noResults: '“{query}”에 해당하는 구절이 없습니다.',
-    copySuccess: '구절이 복사되었습니다', fontAdjusted: '글자 크기 {value}%', annotationsSoon: '하이라이트 기능은 곧 제공됩니다',
+    copySuccess: '구절이 복사되었습니다', fontAdjusted: '글자 크기 {value}%', decreaseFont: '글자 크기 줄이기', increaseFont: '글자 크기 키우기', annotationsSoon: '하이라이트 기능은 곧 제공됩니다',
     contextCopy: '복사', contextSearch: '검색', contextSearchGoogle: 'Google 검색', contextSearchBaidu: '百度 검색',
     plansSoon: '읽기 계획은 곧 제공됩니다', welcome: '돌아오신 것을 환영합니다. 계속 읽어 보세요.', loading: '성경 버전 불러오는 중…',
     loadFailed: '성경을 불러오지 못했습니다', reload: '다시 불러오기', serverHint: '로컬 서버를 통해 열어 주세요. file:// 페이지에서는 XML을 읽을 수 없습니다.',
   },
   fr: {
-    language: 'Langue', close: 'Fermer', emptyChapter: 'Aucun texte pour ce chapitre', emptyChapterHint: 'Essayez un autre livre ou une autre version.',
+    language: 'Langue', close: 'Fermer', downloadApp: 'Télécharger l’app', emptyChapter: 'Aucun texte pour ce chapitre', emptyChapterHint: 'Essayez un autre livre ou une autre version.',
     reader: 'Lecture', annotations: 'Mes annotations', plans: 'Plan de lecture', index: 'Index biblique', books: '{count} livres',
     oldTestament: 'Ancien Testament', newTestament: 'Nouveau Testament', chapterLabel: 'Chapitres', testamentSelection: 'Choix du testament',
     localReady: 'Versions locales prêtes', search: 'Rechercher dans la Bible', scriptureReader: 'Lecteur biblique', versionsUnit: 'versions',
@@ -173,13 +175,13 @@ const UI_COPY = {
     versionPanelDescription: 'Sélectionnez plusieurs versions pour lire le même verset côte à côte.', selectedVersions: '{count} sélectionnées',
     done: 'Terminé', searchPlaceholder: 'Rechercher un mot, par exemple : lumière, love', searchHint: 'Rechercher dans toutes les versions chargées',
     searchEnter: 'Appuyez sur Entrée pour rechercher', found: '{count} résultats', noResults: 'Aucun verset trouvé pour « {query} ».',
-    copySuccess: 'Verset copié', fontAdjusted: 'Taille du texte : {value}%', annotationsSoon: 'Les annotations arrivent bientôt',
+    copySuccess: 'Verset copié', fontAdjusted: 'Taille du texte : {value}%', decreaseFont: 'Réduire la taille du texte', increaseFont: 'Agrandir la taille du texte', annotationsSoon: 'Les annotations arrivent bientôt',
     contextCopy: 'Copier', contextSearch: 'Rechercher', contextSearchGoogle: 'Rechercher avec Google', contextSearchBaidu: 'Rechercher avec Baidu',
     plansSoon: 'Les plans de lecture arrivent bientôt', welcome: 'Bon retour. Continuez votre lecture.', loading: 'Chargement des versions…',
     loadFailed: 'Impossible de charger la Bible', reload: 'Recharger', serverHint: 'Ouvrez ce site via un serveur local. Les navigateurs bloquent les fichiers XML depuis file://.',
   },
   de: {
-    language: 'Sprache', close: 'Schließen', emptyChapter: 'Für dieses Kapitel ist kein Text verfügbar', emptyChapterHint: 'Wähle ein anderes Buch oder eine andere Version.',
+    language: 'Sprache', close: 'Schließen', downloadApp: 'App laden', emptyChapter: 'Für dieses Kapitel ist kein Text verfügbar', emptyChapterHint: 'Wähle ein anderes Buch oder eine andere Version.',
     reader: 'Lesen', annotations: 'Meine Markierungen', plans: 'Leseplan', index: 'Bibelindex', books: '{count} Bücher',
     oldTestament: 'Altes Testament', newTestament: 'Neues Testament', chapterLabel: 'Kapitel', testamentSelection: 'Testament auswählen',
     localReady: 'Lokale Versionen bereit', search: 'Bibeltext suchen', scriptureReader: 'Bibel-Leser', versionsUnit: 'Versionen',
@@ -190,7 +192,7 @@ const UI_COPY = {
     versionPanelDescription: 'Wähle mehrere Versionen, um denselben Vers nebeneinander zu lesen.', selectedVersions: '{count} ausgewählt',
     done: 'Fertig', searchPlaceholder: 'Suchwort eingeben, z. B. Licht, love', searchHint: 'Alle geladenen Versionen durchsuchen',
     searchEnter: 'Enter zum Suchen drücken', found: '{count} Ergebnisse', noResults: 'Keine Verse für „{query}“ gefunden.',
-    copySuccess: 'Vers kopiert', fontAdjusted: 'Schriftgröße: {value}%', annotationsSoon: 'Markierungen folgen bald',
+    copySuccess: 'Vers kopiert', fontAdjusted: 'Schriftgröße: {value}%', decreaseFont: 'Schrift verkleinern', increaseFont: 'Schrift vergrößern', annotationsSoon: 'Markierungen folgen bald',
     contextCopy: 'Kopieren', contextSearch: 'Suchen', contextSearchGoogle: 'Mit Google suchen', contextSearchBaidu: 'Mit Baidu suchen',
     plansSoon: 'Lesepläne folgen bald', welcome: 'Willkommen zurück. Lies weiter.', loading: 'Bibelversionen werden geladen…',
     loadFailed: 'Bibel konnte nicht geladen werden', reload: 'Neu laden', serverHint: 'Öffne diese Seite über einen lokalen Server. Browser blockieren XML über file://.',
@@ -294,6 +296,14 @@ const ENGLISH_BOOK_ABBREVIATIONS = {
 
 const OLD_TESTAMENT_IDS = new Set(BOOKS.slice(0, 39).map((book) => book.id));
 const BOOK_ALIASES = new Map();
+const FONT_SCALE_DEFAULT = 1;
+const FONT_SCALE_MIN = 0.75;
+const FONT_SCALE_MAX = 1.5;
+const FONT_SCALE_STEP = 0.05;
+const storedFontScale = parseFloat(localStorage.getItem('7bible.fontScale') || '');
+const initialFontScale = Number.isFinite(storedFontScale)
+  ? Math.min(FONT_SCALE_MAX, Math.max(FONT_SCALE_MIN, storedFontScale))
+  : FONT_SCALE_DEFAULT;
 
 BOOKS.forEach((book) => {
   [book.id, book.en, book.zh, book.en.replace(/\s/g, ''), book.zh.replace(/书$/, '')].forEach((alias) => {
@@ -308,7 +318,7 @@ const state = {
   selectedBookId: localStorage.getItem('7bible.book') || 'Gen',
   selectedChapter: Number(localStorage.getItem('7bible.chapter') || 1),
   testament: localStorage.getItem('7bible.testament') || 'old',
-  fontScale: Number(localStorage.getItem('7bible.fontScale') || 1),
+  fontScale: initialFontScale,
   darkMode: localStorage.getItem('7bible.darkMode') === 'true',
   sidebarOpen: window.innerWidth > 900,
   versionPanelOpen: false,
@@ -598,7 +608,12 @@ function render() {
               <p class="chapter-subtitle">${escapeHtml(book.en)} · ${state.selectedChapter} ${t('chapterUnit')} <span class="heading-rule"></span> ${verseNumbers.length} ${t('verseUnit')}</p>
             </div>
             <div class="heading-actions">
-              <button class="quiet-button" data-action="toggle-font" title="${t('font')}"><span class="text-icon">A</span><span>${t('font')}</span></button>
+              <div class="font-stepper" role="group" aria-label="${t('font')}" title="${t('font')}">
+                <span class="font-stepper-icon text-icon" aria-hidden="true">A</span>
+                <button class="font-stepper-button" data-action="decrease-font" aria-label="${t('decreaseFont')}" title="${t('decreaseFont')}" ${state.fontScale <= FONT_SCALE_MIN ? 'disabled' : ''}>−</button>
+                <span class="font-stepper-value" aria-live="polite">${Math.round(state.fontScale * 100)}%</span>
+                <button class="font-stepper-button" data-action="increase-font" aria-label="${t('increaseFont')}" title="${t('increaseFont')}" ${state.fontScale >= FONT_SCALE_MAX ? 'disabled' : ''}>＋</button>
+              </div>
               <button class="quiet-button ${state.darkMode ? 'is-active' : ''}" data-action="toggle-theme" title="${state.darkMode ? t('light') : t('dark')}"><span class="text-icon">◐</span><span>${state.darkMode ? t('light') : t('dark')}</span></button>
             </div>
           </section>
@@ -662,13 +677,21 @@ function renderSidebar(language) {
           <span class="brand-mark">7</span>
           <span class="brand-name">7bible</span>
         </div>
-        <button class="sidebar-close" data-action="toggle-sidebar" aria-label="关闭目录">×</button>
+        <div class="sidebar-brand-actions">
+          <a class="app-download-link" href="${APP_STORE_URL}" target="_blank" rel="noopener noreferrer" aria-label="${t('downloadApp')}" title="${t('downloadApp')}">
+            <span class="app-download-icon" aria-hidden="true">↗</span>
+            <span>${t('downloadApp')}</span>
+          </a>
+          <button class="sidebar-close" data-action="toggle-sidebar" aria-label="关闭目录">×</button>
+        </div>
       </div>
 
       <div class="sidebar-nav">
         <button class="sidebar-nav-item active"><span class="nav-symbol">⌂</span><span>${t('reader')}</span><span class="nav-count">LIVE</span></button>
+        <!--
         <button class="sidebar-nav-item" data-action="show-toast" data-toast="${escapeHtml(t('annotationsSoon'))}"><span class="nav-symbol">✦</span><span>${t('annotations')}</span></button>
         <button class="sidebar-nav-item" data-action="show-toast" data-toast="${escapeHtml(t('plansSoon'))}"><span class="nav-symbol">◷</span><span>${t('plans')}</span></button>
+        -->
       </div>
 
       <div class="sidebar-section-heading">
@@ -706,14 +729,14 @@ function renderTopbar() {
         <div class="breadcrumb"><span class="breadcrumb-muted">${t('reader')}</span><span>/</span><strong>${escapeHtml(currentBook().zh)} ${state.selectedChapter}</strong></div>
       </div>
       <div class="topbar-actions">
+        <button class="search-trigger" data-action="toggle-search"><span class="search-symbol">⌕</span><span>${t('search')}</span><kbd>⌘ K</kbd></button>
         <label class="language-picker" title="${t('language')}">
           <span class="language-symbol">文</span>
           <select id="ui-language-select" class="language-select" aria-label="${t('language')}">
             ${UI_LANGUAGES.map((language) => `<option value="${language.id}" ${state.uiLanguage === language.id ? 'selected' : ''}>${language.label}</option>`).join('')}
           </select>
         </label>
-        <button class="search-trigger" data-action="toggle-search"><span class="search-symbol">⌕</span><span>${t('search')}</span><kbd>⌘ K</kbd></button>
-        <button class="profile-button" data-action="show-toast" data-toast="${escapeHtml(t('welcome'))}"><span>MJ</span></button>
+        <!-- <button class="profile-button" data-action="show-toast" data-toast="${escapeHtml(t('welcome'))}"><span>MJ</span></button> -->
       </div>
     </header>
   `;
@@ -1046,9 +1069,12 @@ function handleAction(event) {
     return;
   }
 
-  if (action === 'toggle-font') {
-    state.fontScale = state.fontScale >= 1.15 ? 0.95 : Number((state.fontScale + 0.1).toFixed(2));
-    if (state.fontScale > 1.25) state.fontScale = 0.95;
+  if (action === 'decrease-font' || action === 'increase-font') {
+    const direction = action === 'decrease-font' ? -1 : 1;
+    state.fontScale = Number(Math.min(
+      FONT_SCALE_MAX,
+      Math.max(FONT_SCALE_MIN, state.fontScale + direction * FONT_SCALE_STEP),
+    ).toFixed(2));
     localStorage.setItem('7bible.fontScale', String(state.fontScale));
     showToast(t('fontAdjusted', { value: Math.round(state.fontScale * 100) }));
     return;
