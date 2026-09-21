@@ -372,11 +372,24 @@ function resolveBookId(raw) {
 }
 
 function normalizeOsisId(raw) {
-  const match = String(raw || '').match(/([1-3]?[A-Za-z]+)\.(\d+)\.(\d+)$/);
+  const value = String(raw || '').trim();
+  const match = value.match(/\.(\d+)\.(\d+)$/);
   if (!match) return null;
-  const bookId = resolveBookId(match[1]);
-  if (!BOOK_ALIASES.has(String(bookId).toLowerCase())) return null;
-  return `${bookId}.${Number(match[2])}.${Number(match[3])}`;
+
+  const bookPrefix = value.slice(0, match.index).toLowerCase();
+  const book = BOOKS.find((candidate) => [
+    candidate.id,
+    candidate.en,
+    candidate.en.replace(/\s/g, ''),
+    candidate.zh,
+    candidate.zh.replace(/书$/, ''),
+  ].some((alias) => {
+    const normalizedAlias = String(alias).toLowerCase();
+    return bookPrefix === normalizedAlias || bookPrefix.endsWith(normalizedAlias);
+  }));
+
+  if (!book) return null;
+  return `${book.id}.${Number(match[1])}.${Number(match[2])}`;
 }
 
 function findAncestor(node, wantedTags) {
