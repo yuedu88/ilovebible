@@ -294,6 +294,79 @@ const ENGLISH_BOOK_ABBREVIATIONS = {
   Rev: 'Rev',
 };
 
+const BOOK_NAMES_BY_LANGUAGE = {
+  ja: {
+    Gen: '創世記', Exod: '出エジプト記', Lev: 'レビ記', Num: '民数記', Deut: '申命記',
+    Josh: 'ヨシュア記', Judg: '士師記', Ruth: 'ルツ記', '1Sam': 'サムエル記Ⅰ', '2Sam': 'サムエル記Ⅱ',
+    '1Kgs': '列王記Ⅰ', '2Kgs': '列王記Ⅱ', '1Chr': '歴代誌Ⅰ', '2Chr': '歴代誌Ⅱ',
+    Ezra: 'エズラ記', Neh: 'ネヘミヤ記', Esth: 'エステル記', Job: 'ヨブ記', Ps: '詩篇',
+    Prov: '箴言', Eccl: '伝道者の書', Song: '雅歌', Isa: 'イザヤ書', Jer: 'エレミヤ書',
+    Lam: '哀歌', Ezek: 'エゼキエル書', Dan: 'ダニエル書', Hos: 'ホセア書', Joel: 'ヨエル書',
+    Amos: 'アモス書', Obad: 'オバデヤ書', Jonah: 'ヨナ書', Mic: 'ミカ書', Nah: 'ナホム書',
+    Hab: 'ハバクク書', Zeph: 'ゼパニヤ書', Hag: 'ハガイ書', Zech: 'ゼカリヤ書', Mal: 'マラキ書',
+    Matt: 'マタイの福音書', Mark: 'マルコの福音書', Luke: 'ルカの福音書', John: 'ヨハネの福音書',
+    Acts: '使徒の働き', Rom: 'ローマ人への手紙', '1Cor': 'コリント人への手紙第一',
+    '2Cor': 'コリント人への手紙第二', Gal: 'ガラテヤ人への手紙', Eph: 'エペソ人への手紙',
+    Phil: 'ピリピ人への手紙', Col: 'コロサイ人への手紙', '1Thess': 'テサロニケ人への手紙第一',
+    '2Thess': 'テサロニケ人への手紙第二', '1Tim': 'テモテへの手紙第一', '2Tim': 'テモテへの手紙第二',
+    Titus: 'テトスへの手紙', Phlm: 'ピレモンへの手紙', Heb: 'ヘブル人への手紙',
+    Jas: 'ヤコブの手紙', '1Pet': 'ペテロの手紙第一', '2Pet': 'ペテロの手紙第二',
+    '1John': 'ヨハネの手紙第一', '2John': 'ヨハネの手紙第二', '3John': 'ヨハネの手紙第三',
+    Jude: 'ユダの手紙', Rev: 'ヨハネの黙示録',
+  },
+  ko: {
+    Gen: '창세기', Exod: '출애굽기', Lev: '레위기', Num: '민수기', Deut: '신명기',
+    Josh: '여호수아', Judg: '사사기', Ruth: '룻기', '1Sam': '사무엘상', '2Sam': '사무엘하',
+    '1Kgs': '열왕기상', '2Kgs': '열왕기하', '1Chr': '역대상', '2Chr': '역대하',
+    Ezra: '에스라', Neh: '느헤미야', Esth: '에스더', Job: '욥기', Ps: '시편',
+    Prov: '잠언', Eccl: '전도서', Song: '아가', Isa: '이사야', Jer: '예레미야',
+    Lam: '예레미야애가', Ezek: '에스겔', Dan: '다니엘', Hos: '호세아', Joel: '요엘',
+    Amos: '아모스', Obad: '오바댜', Jonah: '요나', Mic: '미가', Nah: '나훔',
+    Hab: '하박국', Zeph: '스바냐', Hag: '학개', Zech: '스가랴', Mal: '말라기',
+    Matt: '마태복음', Mark: '마가복음', Luke: '누가복음', John: '요한복음', Acts: '사도행전',
+    Rom: '로마서', '1Cor': '고린도전서', '2Cor': '고린도후서', Gal: '갈라디아서',
+    Eph: '에베소서', Phil: '빌립보서', Col: '골로새서', '1Thess': '데살로니가전서',
+    '2Thess': '데살로니가후서', '1Tim': '디모데전서', '2Tim': '디모데후서', Titus: '디도서',
+    Phlm: '빌레몬서', Heb: '히브리서', Jas: '야고보서', '1Pet': '베드로전서',
+    '2Pet': '베드로후서', '1John': '요한일서', '2John': '요한이서', '3John': '요한삼서',
+    Jude: '유다서', Rev: '요한계시록',
+  },
+  fr: {
+    Gen: 'Genèse', Exod: 'Exode', Lev: 'Lévitique', Num: 'Nombres', Deut: 'Deutéronome',
+    Josh: 'Josué', Judg: 'Juges', Ruth: 'Ruth', '1Sam': '1 Samuel', '2Sam': '2 Samuel',
+    '1Kgs': '1 Rois', '2Kgs': '2 Rois', '1Chr': '1 Chroniques', '2Chr': '2 Chroniques',
+    Ezra: 'Esdras', Neh: 'Néhémie', Esth: 'Esther', Job: 'Job', Ps: 'Psaumes',
+    Prov: 'Proverbes', Eccl: 'Ecclésiaste', Song: 'Cantique des cantiques', Isa: 'Ésaïe',
+    Jer: 'Jérémie', Lam: 'Lamentations', Ezek: 'Ézéchiel', Dan: 'Daniel', Hos: 'Osée',
+    Joel: 'Joël', Amos: 'Amos', Obad: 'Abdias', Jonah: 'Jonas', Mic: 'Michée',
+    Nah: 'Nahum', Hab: 'Habacuc', Zeph: 'Sophonie', Hag: 'Aggée', Zech: 'Zacharie',
+    Mal: 'Malachie', Matt: 'Matthieu', Mark: 'Marc', Luke: 'Luc', John: 'Jean',
+    Acts: 'Actes', Rom: 'Romains', '1Cor': '1 Corinthiens', '2Cor': '2 Corinthiens',
+    Gal: 'Galates', Eph: 'Éphésiens', Phil: 'Philippiens', Col: 'Colossiens',
+    '1Thess': '1 Thessaloniciens', '2Thess': '2 Thessaloniciens', '1Tim': '1 Timothée',
+    '2Tim': '2 Timothée', Titus: 'Tite', Phlm: 'Philémon', Heb: 'Hébreux', Jas: 'Jacques',
+    '1Pet': '1 Pierre', '2Pet': '2 Pierre', '1John': '1 Jean', '2John': '2 Jean',
+    '3John': '3 Jean', Jude: 'Jude', Rev: 'Apocalypse',
+  },
+  de: {
+    Gen: '1. Mose', Exod: '2. Mose', Lev: '3. Mose', Num: '4. Mose', Deut: '5. Mose',
+    Josh: 'Josua', Judg: 'Richter', Ruth: 'Rut', '1Sam': '1. Samuel', '2Sam': '2. Samuel',
+    '1Kgs': '1. Könige', '2Kgs': '2. Könige', '1Chr': '1. Chronik', '2Chr': '2. Chronik',
+    Ezra: 'Esra', Neh: 'Nehemia', Esth: 'Ester', Job: 'Hiob', Ps: 'Psalmen',
+    Prov: 'Sprüche', Eccl: 'Prediger', Song: 'Hohelied', Isa: 'Jesaja', Jer: 'Jeremia',
+    Lam: 'Klagelieder', Ezek: 'Hesekiel', Dan: 'Daniel', Hos: 'Hosea', Joel: 'Joel',
+    Amos: 'Amos', Obad: 'Obadja', Jonah: 'Jona', Mic: 'Micha', Nah: 'Nahum',
+    Hab: 'Habakuk', Zeph: 'Zefanja', Hag: 'Haggai', Zech: 'Sacharja', Mal: 'Maleachi',
+    Matt: 'Matthäus', Mark: 'Markus', Luke: 'Lukas', John: 'Johannes',
+    Acts: 'Apostelgeschichte', Rom: 'Römer', '1Cor': '1. Korinther', '2Cor': '2. Korinther',
+    Gal: 'Galater', Eph: 'Epheser', Phil: 'Philipper', Col: 'Kolosser',
+    '1Thess': '1. Thessalonicher', '2Thess': '2. Thessalonicher', '1Tim': '1. Timotheus',
+    '2Tim': '2. Timotheus', Titus: 'Titus', Phlm: 'Philemon', Heb: 'Hebräer',
+    Jas: 'Jakobus', '1Pet': '1. Petrus', '2Pet': '2. Petrus', '1John': '1. Johannes',
+    '2John': '2. Johannes', '3John': '3. Johannes', Jude: 'Judas', Rev: 'Offenbarung',
+  },
+};
+
 const OLD_TESTAMENT_IDS = new Set(BOOKS.slice(0, 39).map((book) => book.id));
 const BOOK_ALIASES = new Map();
 const FONT_SCALE_DEFAULT = 1;
@@ -510,12 +583,9 @@ function chapterVerseNumbers(bookId, chapter) {
     .sort((a, b) => a - b);
 }
 
-function displayBookName(book) {
-  return `${book.zh} · ${book.en}`;
-}
-
-function bookNameForLanguage(book, language) {
-  return String(language || '').toLowerCase().startsWith('zh') ? book.zh : book.en;
+function bookNameForLanguage(book, language = state.uiLanguage) {
+  const languageCode = String(language || '').toLowerCase().split('-')[0];
+  return languageCode === 'zh' ? book.zh : BOOK_NAMES_BY_LANGUAGE[languageCode]?.[book.id] || book.en;
 }
 
 function bookAbbreviationForLanguage(book, language) {
@@ -601,7 +671,7 @@ function render() {
               <div class="eyebrow">${t('scriptureReader')} <span class="eyebrow-dot"></span> ${selectedVersions.length} ${t('versionsUnit')}</div>
               <div class="chapter-title-row">
                 <button class="chapter-stepper" data-action="previous-chapter" aria-label="${t('previousChapter')}" ${canGoPrevious ? '' : 'disabled'}>←</button>
-                <h1>${escapeHtml(book.zh)} <span>${state.selectedChapter}</span></h1>
+                <h1>${escapeHtml(bookNameForLanguage(book))} <span>${state.selectedChapter}</span></h1>
                 <button class="chapter-stepper" data-action="next-chapter" aria-label="${t('nextChapter')}" ${canGoNext ? '' : 'disabled'}>→</button>
                 ${renderChapterStrip(chapterNumbers(book.id))}
               </div>
@@ -631,7 +701,7 @@ function render() {
 
           <section class="reader-card ${selectedVersions.length > 1 ? 'compare-mode' : 'single-mode'}" style="--version-columns:${Math.max(selectedVersions.length, 1)}">
             <div class="reader-card-topline">
-              <span>${escapeHtml(book.zh)} · ${escapeHtml(book.en)}</span>
+              <span>${escapeHtml(bookNameForLanguage(book))}</span>
               <span class="reading-position">${book.abbr} ${state.selectedChapter}</span>
             </div>
             <div class="verse-list">
@@ -651,7 +721,7 @@ function render() {
             </div>
             <div class="chapter-navigation" aria-label="${t('chapterLabel')}">
               <button class="chapter-stepper" data-action="previous-chapter" aria-label="${t('previousChapter')}" title="${t('previousChapter')}" ${canGoPrevious ? '' : 'disabled'}>←</button>
-              <span class="chapter-navigation-title">${escapeHtml(book.zh)} <span>${state.selectedChapter}</span></span>
+              <span class="chapter-navigation-title">${escapeHtml(bookNameForLanguage(book))} <span>${state.selectedChapter}</span></span>
               <button class="chapter-stepper" data-action="next-chapter" aria-label="${t('nextChapter')}" title="${t('nextChapter')}" ${canGoNext ? '' : 'disabled'}>→</button>
             </div>
           </footer>
@@ -726,7 +796,7 @@ function renderTopbar() {
     <header class="topbar">
       <div class="topbar-left">
         <button class="menu-button" data-action="toggle-sidebar" aria-label="${t('index')}">☰</button>
-        <div class="breadcrumb"><span class="breadcrumb-muted">${t('reader')}</span><span>/</span><strong>${escapeHtml(currentBook().zh)} ${state.selectedChapter}</strong></div>
+        <div class="breadcrumb"><span class="breadcrumb-muted">${t('reader')}</span><span>/</span><strong>${escapeHtml(bookNameForLanguage(currentBook()))} ${state.selectedChapter}</strong></div>
       </div>
       <div class="topbar-actions">
         <button class="search-trigger" data-action="toggle-search"><span class="search-symbol">⌕</span><span>${t('search')}</span><kbd>⌘ K</kbd></button>
@@ -840,7 +910,7 @@ function renderSearchResults() {
     <div class="search-results">
       ${state.searchResults.slice(0, 30).map((result) => `
         <button class="search-result" data-action="jump-to-result" data-book="${result.bookId}" data-chapter="${result.chapter}" data-verse="${result.verse}">
-          <span class="result-reference">${escapeHtml(result.book.zh)} ${result.chapter}:${result.verse}</span>
+          <span class="result-reference">${escapeHtml(bookNameForLanguage(result.book))} ${result.chapter}:${result.verse}</span>
           <span class="result-version">${escapeHtml(result.version.short)}</span>
           <span class="result-text">${highlightMatch(result.text, state.searchQuery)}</span>
         </button>
@@ -1155,7 +1225,7 @@ function handleAction(event) {
   if (action === 'copy-verse') {
     const version = state.versions.get(target.dataset.version);
     const text = getVerseText(target.dataset.version, state.selectedBookId, state.selectedChapter, Number(target.dataset.verse));
-    const copyText = `${currentBook().zh} ${state.selectedChapter}:${target.dataset.verse} · ${version.definition.short}\n${text}`;
+    const copyText = `${bookNameForLanguage(currentBook())} ${state.selectedChapter}:${target.dataset.verse} · ${version.definition.short}\n${text}`;
     navigator.clipboard?.writeText(copyText).catch(() => undefined);
     showToast(t('copySuccess'));
     return;
